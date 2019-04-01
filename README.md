@@ -9,8 +9,7 @@ You will then see animation that indicates the repository is being forked to you
 Clone your forked repository and open it on Github Desktop. Open in VSCode.
 
 # Setup your exercise folder
-Navigate to the students folder, create a new folder with your name following the format
-
-**_firstname-lastname_**
-
-Commit your change and create a pull request.
+1. Switch to branch *create-student-folder*
+2. Navigate to the students folder, create a new folder with your name following the format
+    **_firstname-lastname_**
+3. Commit your change and create a pull request. Once your pull request is approved and merged, you can move on and switch to the exercise branch to complete your exercise
