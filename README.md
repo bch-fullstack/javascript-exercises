@@ -30,7 +30,8 @@ Click on the **current branch** tab again and click the **choose a branch to mer
 Select upstream/master from this list, and this pull the changes down from the master repository to bring your local clone up to date. Once you local clone has finished pulling the updates from the master repo, push these new changes to your fork, stored on GitHub, using the push origin button on GitHub desktop.
 
 ### Keeping your forked repo synced using Git Bash
-```cd into/cloned/fork-repo
+```
+cd into/cloned/fork-repo
 git remote add upstream git://github.com/ORIGINAL-DEV-USERNAME/REPO-YOU-FORKED-FROM.git
 git fetch upstream
 ```
