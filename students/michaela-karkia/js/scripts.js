@@ -1,16 +1,7 @@
 /*
 
-document.addEventListener("DOMContentLoaded", function(event) { 
-	var buttons = document.getElementsByClassName('keyboard');
-	var index = buttons.length;
+Is you use this in a project, drop me a line. I'd love to see it used in action!
 
-	while (index--) {
-		buttons[index].addEventListener('click', function(){
-			var note = this.dataset.note.replace('s', '-sharp');
-			document.getElementById(note).play();	
-		});
-	}
-  });
 */
 $(document).ready(function() {
 	var c = $("#mid-c")[0];
