@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Piano Application</title>
+	<link rel="stylesheet" href="css/styling.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<script src="js/scripts.js"></script>
+</head>
+
+<body>
+	<div class="page">
+		<h1>Play The <b>CSS3</b> Piano!</h1>
+		<h2><b>Ebony and Ivory meet CSS.</b><br> Tap a key to play its note</h2>
+		<ol class="scale-1">
+			<li class="keyboard" data-note="c">C</li>
+			<li class="keyboard ebony" data-note="cs">C# D♭</li>
+			<li class="keyboard" data-note="d">D</li>
+			<li class="keyboard ebony" data-note="ds">D# E♭</li>
+			<li class="keyboard" data-note="e">E</li>
+			<li class="keyboard" data-note="f">F</li>
+			<li class="keyboard ebony" data-note="fs">F# G♭</li>
+			<li class="keyboard" data-note="g">G</li>
+			<li class="keyboard ebony" data-note="gs">G# A♭</li>
+			<li class="keyboard" data-note="a">A</li>
+			<li class="keyboard ebony" data-note="as">A# B♭</li>
+			<li class="keyboard" data-note="b">B</li>
+		</ol>
+
+		<ol class="scale-2">
+			<li class="keyboard" data-note="c">C</li>
+			<li class="keyboard ebony" data-note="cs">C# D♭</li>
+			<li class="keyboard" data-note="d">D</li>
+			<li class="keyboard ebony" data-note="ds" class="">D# E♭</li>
+			<li class="keyboard" data-note="e">E</li>
+			<li class="keyboard" data-note="f">F</li>
+			<li class="keyboard ebony" data-note="fs" class="">F# G♭</li>
+			<li class="keyboard" data-note="g">G</li>
+			<li class="keyboard ebony" data-note="gs" class="">G# A♭</li>
+			<li class="keyboard" data-note="a">A</li>
+			<li class="keyboard ebony" data-note="as" class="">A# B♭</li>
+			<li class="keyboard" data-note="b">B</li>
+		</ol>
+		<!-- ol class="scale-3">
+			<li data-note="c">C</li>
+			<li data-note="cs" class="ebony">C# D♭</li>
+			<li data-note="d">D</li>
+			<li data-note="ds" class="ebony">D# E♭</li>
+			<li data-note="e">E</li>
+			<li data-note="f">F</li>
+			<li data-note="fs" class="ebony">F# G♭</li>
+			<li data-note="g">G</li>
+			<li data-note="gs" class="ebony">G# A♭</li>
+			<li data-note="a">A</li>
+			<li data-note="as" class="ebony">A# B</li>
+			<li data-note="b">B</li>
+		</ol -->
+	</div>
+
+	<!-- Original mp3 files from http://www.vibrationdata.com/piano.htm -->
+
+	C <audio id="c" preload="auto" controls>
+		<source src="http://www.vibrationdata.com/piano_middle_C.mp3">
+		</source>
+	</audio>
+	C# <audio preload="auto" id="c-sharp" controls>
+		<source src="http://www.vibrationdata.com/piano_C_sharp.mp3">
+		</source>
+	</audio>
+	D <audio preload="auto" id="d" controls>
+		<source src="http://www.vibrationdata.com/piano_D.mp3">
+		</source>
+	</audio>
+	D# <audio preload="auto" id="d-sharp" controls>
+		<source src="http://www.vibrationdata.com/piano_D_sharp.mp3">
+		</source>
+	</audio>
+	E <audio preload="auto" id="e" controls>
+		<source src="http://www.vibrationdata.com/piano_E.mp3">
+		</source>
+	</audio>
+	F <audio preload="auto" id="f" controls>
+		<source src="http://www.vibrationdata.com/piano_F.mp3">
+		</source>
+	</audio>
+	F# <audio preload="auto" id="f-sharp" controls>
+		<source src="http://www.vibrationdata.com/piano_F_sharp.mp3">
+		</source>
+	</audio>
+	G <audio preload="auto" id="g" controls>
+		<source src="http://www.vibrationdata.com/piano_G.mp3">
+		</source>
+	</audio>
+	G#<audio preload="auto" id="g-sharp" controls>
+		<source src="http://www.vibrationdata.com/piano_G_sharp.mp3">
+		</source>
+	</audio>
+	A <audio preload="auto" id="a" controls>
+		<source src="http://www.vibrationdata.com/piano_A.mp3">
+		</source>
+	</audio>
+	A# <audio preload="auto" id="a-sharp" controls>
+		<source src="http://www.vibrationdata.com/piano_A_sharp.mp3">
+		</source>
+	</audio>
+	B <audio preload="auto" id="b" controls>
+		<source src="http://www.vibrationdata.com/piano_B.mp3">
+		</source>
+	</audio>
+</body>
+
+</html>
