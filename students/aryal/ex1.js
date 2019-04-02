@@ -7,8 +7,3 @@ console.log(isArray([1, 2, 4, 0])); // true
 */
 
 
-function isArray(input){
-
-
-          Array.isArray(input)
-
