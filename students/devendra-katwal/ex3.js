@@ -7,4 +7,9 @@ joinArray(myText);
 
 Expected Output : 
 This is not working
- */
+*/
+function joinArray(myText){
+    return myText.join(' ')
+}
+
+console.log(joinArray(['This', 'is', 'not', 'working']));
