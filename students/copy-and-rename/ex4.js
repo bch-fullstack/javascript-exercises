@@ -7,3 +7,13 @@ validatePIN('2312'); // true
 validatePin('asd123'); // false
 validatePin('000010'); // true
  */
+
+ function validatePIN(input){
+     if (typeof(input)) !=='string'){
+         return false;
+     }
+     else if input[0]===0{
+         return false;
+     }
+     else if 
+ }
