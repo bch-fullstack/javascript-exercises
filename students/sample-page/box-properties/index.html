@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Box Properties</title>
+    <style>
+        body {
+            font-family: 'Courier New', Courier, monospace;
+        }
+
+        .container {
+            width: 306px;
+            height: 1000px;
+            background: yellow;
+        }
+
+        .image {
+            width: 100px;
+            height: 50px;
+            float: left;
+        }
+
+        #image1 {
+            background: red;
+            transition-property: background, border-radius;
+            transition-duration: .5s;
+            transition-timing-function: linear;
+        }
+
+        #image1:hover {
+            border-radius: 50%;
+            background: black;
+        }
+
+        #image2 {
+            background: green;
+        }
+
+        #image3 {
+            background: blue;
+        }
+
+        .blinking {
+            -webkit-animation: argh-my-eyes 1s infinite;
+            -moz-animation: argh-my-eyes 1s infinite;
+            animation: argh-my-eyes 1s infinite;
+        }
+
+        @-webkit-keyframes argh-my-eyes {
+            0% {
+                background-color: #fff;
+            }
+
+            49% {
+                background-color: #fff;
+            }
+
+            50% {
+                background-color: #000;
+            }
+
+            99% {
+                background-color: #000;
+            }
+
+            100% {
+                background-color: #fff;
+            }
+        }
+
+        @-moz-keyframes argh-my-eyes {
+            0% {
+                background-color: #fff;
+            }
+
+            49% {
+                background-color: #fff;
+            }
+
+            50% {
+                background-color: #000;
+            }
+
+            99% {
+                background-color: #000;
+            }
+
+            100% {
+                background-color: #fff;
+            }
+        }
+
+        @keyframes argh-my-eyes {
+            0% {
+                background-color: #fff;
+            }
+
+            49% {
+                background-color: #fff;
+            }
+
+            50% {
+                background-color: #000;
+            }
+
+            99% {
+                background-color: #000;
+            }
+
+            100% {
+                background-color: #fff;
+            }
+        }
+
+        
+    </style>
+
+    <script src="js/konami.js"></script>
+</head>
+
+<body>
+    <div class="container">
+        <div class="image" id="image1"></div>
+        <div class="image" id="image2"></div>
+        <div class="image" id="image3"></div>
+    </div>
+
+</body>
+
+</html>
