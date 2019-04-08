@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Using jQuery Animations</title>
+    <link rel="stylesheet" href="css/styles.css" />
+    <script type="text/javascript" src="js/jquery.js"></script>
+    <script type="text/javascript">
+        $("document").ready(function() {
+            $("#go").click(function() {
+                $("#testDiv").animate({width: 400}, 300) // animate the width to 400 over the duration of 300 milisec
+                .animate({height: 300}, 400) // animate the height to 300 over the duration of 400 milisec
+                .animate({left: 200}, 500) // animate the left property to 200 over the duration of 500 milisec and causes the element to move
+                .animate({top: "+=100", borderWidth: 10}, "slow") // animate 2 properties at the same time, over the duration of slow
+                // read more here https://www.bitdegree.org/learn/jquery-animations
+                // the speed takes either numerical value or slow or fast, default value is 400 
+            });
+        });
+    </script>
+    <style>
+        #testDiv {
+            position: relative;
+            width: 150px;
+            height: 100px;
+            margin: 10px;
+            padding: 20px;
+            background: #b3c8d0;
+            border: 1px solid black;
+            font-size: 16pt;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Quick jQuery Animation Intro</h1>
+    <div id="content">
+        <p>jQuery provides some basic animation features for showing and hiding elements, as well as a low-level animation function
+            that can be used to animate several CSS properties (as long as they are numeric).</p>
+        <button id="go">Start Animation</button>
+        <div id="testDiv"></div>
+    </div>
+</body>
+
+</html>
