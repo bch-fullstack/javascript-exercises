@@ -51,12 +51,25 @@
     stroke-miterlimit: 10;
 }
 
+.meter {
+    text-align: center;
+}
+
 /* Transparent box ensuring arms center properly. */
 .sizing-box {
     fill: none;
 }
 
 /* Make all arms rotate around the same center point. */
+
+element {
+    transform: rotate(360deg);
+    documentgetElementByID ('hour-arm'.css('tranform', 'rotate(' + i 'deg)');
+    documentgetElementByID ('minute-arm'.css('tranform', 'rotate(' + i 'deg)');
+    documentgetElementByID ('second-arm'.css('tranform', 'rotate(' + i 'deg)');
+}
+
+
 /* Optional: Use transition for animation. */
 #hour,
 #minute,
