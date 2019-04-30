@@ -6,9 +6,78 @@
     <script src="https://code.jquery.com/jquery-3.4.0.min.js"
         integrity="sha256-BJeo0qm959uMBGb65z40ejJYGSgR7REI4+CW1fNKwOg="
         crossorigin="anonymous"></script>
+    <script>
+        $(document).ready(function(){
+            $('#show').click(function(){
+                $('#theDiv').show(5000, oncomplete);
+            });
 
+            $('#hide').click(function(){
+                var productId = $(this).attr('data-tag');
+                // var productId = this.getAttribute('data-tag');
+                console.log(productId);
+                $('#theDiv').hide({
+                    duration: 3000,
+                    easing: 'linear',
+                    complete: oncomplete
+                });
+            });
+
+            $('#toggle').click(function(){
+                $('#theDiv').toggle('fast');
+            });
+
+            $('#fadein').click(function(){
+                $('#theDiv').fadeIn('fast');
+            });
+
+            $('#fadeout').click(function(){
+                $('#theDiv').fadeOut(5000);
+            });
+
+            $('#fadein').click(function(){
+                $('#theDiv').fadeIn(5000);
+            });
+
+            $('#fadeto3').click(function(){
+                $('#theDiv').fadeTo(2000, 0.3);
+            });
+
+            $('#fadeup').click(function(){
+                $('#theDiv').fadeTo(2000, 1);
+            });
+
+            $('#slideup').click(function(){
+                $('#theDiv').slideUp();
+            });
+
+            $('#slidedown').click(function(){
+                $('#theDiv').slideDown();
+            });
+
+            $('#pulse').click(function(){
+                $('#theDiv').fadeTo(500, 0.3).fadeTo(500, 1).fadeTo(500, 0.3).fadeTo(500, 1).fadeTo(500, 0.3);
+            });
+            
+            $('#all').click(function(){
+                $('#theDiv').animate({
+                    left: 500,
+                    'font-size': 200
+                }, 5000);
+                
+                $('#theDiv2').animate({
+                    left: 500
+                }, 5000, 'linear');
+            });
+        });
+
+        function oncomplete() {
+            alert('Animation complete');
+        }
+    </script>
     <style type="text/css">
-        #theDiv {
+        #theDiv,
+        #theDiv2 {
             position: relative;
             width: 250px;
             height: 180px;
@@ -47,6 +116,7 @@
        </ul>
         <p>Click the buttons below this <code>&lt;div&gt;</code> element to see how various properties can be animated.</p>
         <div id="theDiv">Animate Me</div>
+        <div id="theDiv2">Animate Me</div>
         <button id="right">Grow Right</button>
         <button id="text">Animate Text</button>
         <button id="move">Move Element</button>
@@ -57,7 +127,7 @@
         <button id="fadeup">Fade To 100%</button>
         <button id="pulse">Pulsate</button>
         <button id="show">Show</button>
-        <button id="hide">Hide</button>
+        <button id="hide" data-tag="productIDsomethingsomething">Hide</button>
         <button id="toggle">Toggle</button>
         <button id="slideup">Slide Up</button>
         <button id="slidedown">Slide Down</button>
