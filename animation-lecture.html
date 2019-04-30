@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Animating an Element Using jQuery</title>
+    <script src="https://code.jquery.com/jquery-3.4.0.min.js"
+        integrity="sha256-BJeo0qm959uMBGb65z40ejJYGSgR7REI4+CW1fNKwOg="
+        crossorigin="anonymous"></script>
+
+    <style type="text/css">
+        #theDiv {
+            position: relative;
+            width: 250px;
+            height: 180px;
+            margin: 10px;
+            padding: 20px;
+            background: #b3c8d0;
+            border: 1px solid black;
+            font-size: 16pt;
+            cursor: pointer;
+            left:100px;
+        }
+        
+        button {
+            margin: 5pt 5pt 0 0;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Animating an Element's Properties</h1>
+    <div id="content">
+        <ul>
+            <li><code>fadeIn()</code> fades the element in from being invisible</li>
+            <li><code>fadeOut()</code> fades the element out and removes it from layout</li>
+            <li><code>fadeTo()</code> fades the element to a specified opacity</li>
+            <li>The <code>animate()</code> function provides a way to create smooth animations on the properties of an object.</li>
+            <li><code>show()</code>: Reveals the matched elements using an optional animation</li>
+            <li><code>hide()</code>: Hides the matched elements using an optional animation</li>
+            <li><code>toggle()</code>: Toggles the visible state of the matched elements using an optional animation</li>
+            <li><code>slideUp()</code>: animates the height of the matched elements to 0 (or whatever CSS min-height is set to).
+                When the animation finishes, the <code>display</code> CSS property of the element is set to 'none' to remove
+                the element from the page layout</li>
+            <li><code>slideDown()</code>: animates the height of the matched elements to reveal them</li>
+            <li><code>slideToggle()</code>: toggles the state of the matched elements, either sliding them up or down depending
+                on their current state</li>
+       </ul>
+        <p>Click the buttons below this <code>&lt;div&gt;</code> element to see how various properties can be animated.</p>
+        <div id="theDiv">Animate Me</div>
+        <button id="right">Grow Right</button>
+        <button id="text">Animate Text</button>
+        <button id="move">Move Element</button>
+        <button id="all">All Properties</button>
+        <button id="fadein">Fade In</button>
+        <button id="fadeout">Fade Out</button>
+        <button id="fadeto3">Fade To 30%</button>
+        <button id="fadeup">Fade To 100%</button>
+        <button id="pulse">Pulsate</button>
+        <button id="show">Show</button>
+        <button id="hide">Hide</button>
+        <button id="toggle">Toggle</button>
+        <button id="slideup">Slide Up</button>
+        <button id="slidedown">Slide Down</button>
+        <button id="toggle">Toggle Slide</button>
+    </div>
+</body>
+
+</html>
