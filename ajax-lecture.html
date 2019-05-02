@@ -2,41 +2,67 @@
 <html>
 
 <head>
-  <title>Using the Ajax Function</title>
-  <style>
-    #ajaxContent {
-      padding: 5pt;
-      border: 2px dashed lightgray;
-    }
-  </style>
+    <title>Using the Ajax Function</title>
+    <style>
+        #ajaxContent {
+            padding: 5pt;
+            border: 2px dashed lightgray;
+        }
+    </style>
+    <script src="https://code.jquery.com/jquery-3.4.0.min.js"
+        integrity="sha256-BJeo0qm959uMBGb65z40ejJYGSgR7REI4+CW1fNKwOg=" crossorigin="anonymous"></script>
+    <script type="text/javascript">
+        var config = {
+            RESTAURANT_API_URL: 'http://www.lolnas.fi/api/restaurants.json'
+        };
 
-  <script type="text/javascript">
-    $("document").ready(function() {
-        getData();
-      });
-      
-      function getData() {
-      }
-      
-      function successFn(result) {
-        console.log("Setting result");
-        $("#ajaxContent").append(result);
-      }
-      
-      function errorFn(xhr, status, strErr) {
-        console.log("There was an error!");
-      }
-  </script>
+        $("document").ready(function () {
+            getData(config.RESTAURANT_API_URL);
+            getData(config.RESTAURANT_API_URL);
+            getData(config.RESTAURANT_API_URL);
+        });
+
+        function getData(url) {
+            $.ajax({
+                url: url,
+                type: 'GET',
+                dataType: 'jsonp',
+                crossDomain: true,
+                success: successFn,
+                error: errorFn
+            });
+        }
+
+        function successFn(result) {
+            console.log("Setting result");
+            var restaurants = result.restaurants;
+
+            restaurants.forEach(element => {
+                var _rest = document.createElement('div');
+                $(_rest).append('<div>' + element.url + '</div>');
+                $(_rest).append('<div>' + element.name + '</div>');
+                $(_rest).append('<div>' + element.lunches + '</div>');
+                $(_rest).append('<div>**********************</div>');
+                $("#ajaxContent").append(_rest);
+            });
+        }
+
+        function errorFn(xhr, status, strErr) {
+            console.log("There was an error!");
+        }
+
+    </script>
 </head>
 
 <body>
-  <h1>Using the basic Ajax function</h1>
-  <div id="content">
+    <h1>Using the basic Ajax function</h1>
+    <div id="content">
 
-    <p>The <code>$.ajax()</code> function is used to perform basic AJAX requests. It can be customized using a variety of parameters.</p>
-    <p>If successful, the returned data will appear here:</p>
-    <p id="ajaxContent"></p>
-  </div>
+        <p>The <code>$.ajax()</code> function is used to perform basic AJAX requests. It can be customized using a
+            variety of parameters.</p>
+        <p>If successful, the returned data will appear here:</p>
+        <p id="ajaxContent"></p>
+    </div>
 </body>
 
 </html>
