@@ -12,45 +12,81 @@
     <script src="https://code.jquery.com/jquery-3.4.0.min.js"
         integrity="sha256-BJeo0qm959uMBGb65z40ejJYGSgR7REI4+CW1fNKwOg=" crossorigin="anonymous"></script>
     <script type="text/javascript">
-        var config = {
-            RESTAURANT_API_URL: 'http://www.lolnas.fi/api/restaurants.json'
-        };
-
-        $("document").ready(function () {
-            getData(config.RESTAURANT_API_URL);
-            getData(config.RESTAURANT_API_URL);
-            getData(config.RESTAURANT_API_URL);
+        $('document').ready(function () {
+            getData();
         });
 
-        function getData(url) {
-            $.ajax({
-                url: url,
-                type: 'GET',
+        function getData() {
+            var settings = {
+                method: 'GET',
                 dataType: 'jsonp',
-                crossDomain: true,
                 success: successFn,
-                error: errorFn
+                error: errorFn,
+                complete: oncomplete
+            };
+            
+            $.ajax('http://www.lolnas.fi/api/restaurants.json', settings);
+        }
+
+        function successFn(data) {
+            var _temp = 0;
+
+            navigator.geolocation.getCurrentPosition(function(position){
+                for (var i = 0; i < data.restaurants.length; i++) {
+                    _temp = distance(position.coords.latitude, position.coords.longitude, data.restaurants[i].latitude, data.restaurants[i].longitude, 'K');
+                    console.log('The distance between me and the restaurant ' + data.restaurants[i].data_provider_title + ' is ' + _temp);
+                }
             });
+            
+
+            /* 
+            data.restaurants.forEach(function(element){
+                $('#ajaxContent').append('Restaurant ' + element.data_provider_title +
+                    'has coordinates of lat = ' + element.latitude + ' and lon =' + element.longitude);
+            }); */
+
         }
 
-        function successFn(result) {
-            console.log("Setting result");
-            var restaurants = result.restaurants;
-
-            restaurants.forEach(element => {
-                var _rest = document.createElement('div');
-                $(_rest).append('<div>' + element.url + '</div>');
-                $(_rest).append('<div>' + element.name + '</div>');
-                $(_rest).append('<div>' + element.lunches + '</div>');
-                $(_rest).append('<div>**********************</div>');
-                $("#ajaxContent").append(_rest);
-            });
+        function errorFn(){
+            console.log('Oops! There is an error');
         }
 
-        function errorFn(xhr, status, strErr) {
-            console.log("There was an error!");
+        function oncomplete(){
+            console.log('Operation complete');
         }
 
+        /**
+         * calculate the distance between position 1 (lat1, lon1) and position 2 (lat2, lon2)
+         * unit param takes the value of either K - kilometer or N - miles
+         * @param {Number} lat1, lon1, lat2, lon2
+         * @param {String} unit
+         * @return {Number} dist the calculated distance between position 1 and 2
+         */
+        function distance(lat1, lon1, lat2, lon2, unit) {
+            if ((lat1 == lat2) && (lon1 == lon2)) {
+                return 0;
+            } else {
+                var radlat1 = Math.PI * lat1 / 180;
+                var radlat2 = Math.PI * lat2 / 180;
+                var theta = lon1 - lon2;
+                var radtheta = Math.PI * theta / 180;
+                var dist = Math.sin(radlat1) * Math.sin(radlat2) + Math.cos(radlat1) * Math.cos(radlat2) * Math.cos(
+                    radtheta);
+                if (dist > 1) {
+                    dist = 1;
+                }
+                dist = Math.acos(dist);
+                dist = dist * 180 / Math.PI;
+                dist = dist * 60 * 1.1515;
+                if (unit == "K") {
+                    dist = dist * 1.609344
+                }
+                if (unit == "N") {
+                    dist = dist * 0.8684
+                }
+                return dist;
+            }
+        }
     </script>
 </head>
 
