@@ -15,14 +15,10 @@ function handleResponse(resp) {
 function renderContent(resp) {
     $('#flickrLink').text(resp.link);
     $('#flickrTitle').text(resp.title);
-    
-    var imageItems = resp.items,
-        index = resp.items.length;
 
     for (var i = 0; i < resp.items.length; i++) {
-        $('#imageWrapper').append('<div>' + resp.items[i].link + '</div>');
+        $('#imageWrapper').append('<img src="' + resp.items[i].media.m + '"></img>');
     }
-
 }
 
 function doAjaxCall() {
