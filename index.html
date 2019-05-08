@@ -6,6 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Flickr gallery page</title>
+    <link href="//netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
     <link rel="stylesheet" href="css/styles.css">
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"
         integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
@@ -13,9 +15,17 @@
 </head>
 
 <body>
+    <input id="searchTerm" type="text" placeholder="Enter Search Term">
+
+    <button id="search">Find</button>
+
     <div id="flickrLink"></div>
     <div id="flickrTitle"></div>
-    <div id="imageWrapper"></div>
+
+    <div class="container">
+        <div id="imageWrapper" class="row">
+        </div>
+    </div>
 </body>
 
 </html>
