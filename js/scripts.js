@@ -1,5 +1,14 @@
 var flickrAPI = '//api.flickr.com/services/feeds/photos_public.gne?jsoncallback=?';
 
+/**
+ * Call the render function to render image content if there are result,
+ * otherwise, discard and print out the notification that nothing is found
+ * Call addFavouriteButtonEvent function once finished rendering images
+ * 
+ * @param   {Object}    resp contains the data that we retrieved from the AJAX call to to flickr
+ * @return  {Boolean}   false if no image is found
+ * @return  {Void}      if images get rendered
+ */
 function handleResponse(resp) {
     console.log('The request has been completed'); 
     console.log(resp);
@@ -10,6 +19,13 @@ function handleResponse(resp) {
     }
 
     renderContent(resp);
+    addFavouriteButtonEvent();
+}
+
+function addFavouriteButtonEvent() {
+    $('.favourite').click(function(){
+        console.log('Try to add to favourite');
+    });
 }
 
 function renderContent(resp) {
@@ -23,7 +39,15 @@ function renderContent(resp) {
 }
 
 function createImage(url) {
-    $('#imageWrapper').append('<div class="col-md-3 col-sm-4 col-xs-6"><img class="img-responsive" src="' + url + '"></img></div>');
+    $('#imageWrapper').append(`
+        <div class="col-md-3 col-sm-4 col-xs-6">
+            <img class="img-responsive" src="`
+            + url +
+            `"> 
+            </img>
+            <button class="favourite">Favourite</button>
+    </div>
+    `);
 }
 
 function doAjaxCall(searchTerm) {
