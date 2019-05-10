@@ -27,8 +27,26 @@ function addFavouriteButtonEvent() {
         var _sourceOfClickedImage = $(this).siblings('img')[0].getAttribute('src');
         // get all of the img siblings of the .favourite element that has been clicked
         // and get the src attribute of that sibling
-        console.log(extractImageUnique(_sourceOfClickedImage));
+        var uniqueId = extractImageUnique(_sourceOfClickedImage);
+        
+        $.ajax({
+            method: 'GET',
+            url: 'handleFavourite.php',
+            data: {
+                favouriteImageId: uniqueId
+            },
+            success: onSuccess,
+            error: onError
+        });
     });
+}
+
+function onSuccess(data) {
+    console.log(data);
+}
+
+function onError(err){
+    console.log('Oops something has gone wrong: ' + err.statusText);
 }
 
 function extractImageUnique(url) {
