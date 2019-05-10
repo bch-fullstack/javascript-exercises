@@ -24,8 +24,19 @@ function handleResponse(resp) {
 
 function addFavouriteButtonEvent() {
     $('.favourite').click(function(){
-        console.log('Try to add to favourite');
+        var _sourceOfClickedImage = $(this).siblings('img')[0].getAttribute('src');
+        // get all of the img siblings of the .favourite element that has been clicked
+        // and get the src attribute of that sibling
+        console.log(extractImageUnique(_sourceOfClickedImage));
     });
+}
+
+function extractImageUnique(url) {
+    url = url.split('/'); // turns url into an array of elements, separated by backslash /
+    return url[url.length-2] + '/' + url[url.length-1].replace('.jpg', '');
+    // url[url.length-1] returns the last element of the array
+    // url[url.length-2] returns the second last element of the array
+    // url[url.length-1].replace('.jpg', '') returns the last element of the array without the .jpg suffix
 }
 
 function renderContent(resp) {
